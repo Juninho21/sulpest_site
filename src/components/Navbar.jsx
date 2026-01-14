@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const Navbar = ({ theme, toggleTheme }) => {
   const [scrolled, setScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -12,16 +13,21 @@ const Navbar = ({ theme, toggleTheme }) => {
   }, []);
 
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+    <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${isMenuOpen ? 'menu-open' : ''}`}>
       <div className="container nav-content">
         <div className="logo">
           <img src="/images/logo.png" alt="Sulpest Logo" className="navbar-logo" />
         </div>
-        <div className="nav-links">
-          <a href="#home">Home</a>
-          <a href="#about">A Empresa</a>
-          <a href="#services">Serviços</a>
-          <a href="#contact">Contato</a>
+
+        <div className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
+          <a href="#home" onClick={() => setIsMenuOpen(false)}>Home</a>
+          <a href="#about" onClick={() => setIsMenuOpen(false)}>A Empresa</a>
+          <a href="#services" onClick={() => setIsMenuOpen(false)}>Serviços</a>
+          <a href="#contact" onClick={() => setIsMenuOpen(false)}>Contato</a>
+          <a href="https://wa.me/5554991384396" target="_blank" className="btn-cta mobile-only">WhatsApp</a>
+        </div>
+
+        <div className="nav-actions">
           <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle Theme">
             {theme === 'dark' ? (
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -33,7 +39,16 @@ const Navbar = ({ theme, toggleTheme }) => {
               </svg>
             )}
           </button>
-          <a href="https://wa.me/5554991384396" target="_blank" className="btn-cta">Orçamento Grátis</a>
+
+          <a href="https://wa.me/5554991384396" target="_blank" className="btn-cta desktop-only">Orçamento Grátis</a>
+
+          <button className="mobile-menu-btn" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Menu">
+            <div className={`hamburger ${isMenuOpen ? 'active' : ''}`}>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </button>
         </div>
       </div>
 
@@ -61,6 +76,12 @@ const Navbar = ({ theme, toggleTheme }) => {
           align-items: center;
         }
 
+        .nav-controls {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+        }
+
         .navbar-logo {
           height: 100px;
           width: auto;
@@ -82,6 +103,15 @@ const Navbar = ({ theme, toggleTheme }) => {
           align-items: center;
         }
 
+        .nav-actions {
+          display: flex;
+          align-items: center;
+          gap: 1.5rem;
+        }
+
+        .desktop-only { display: block; }
+        .mobile-only { display: none; }
+
         .nav-links a {
           font-weight: 600;
           font-size: 0.9rem;
@@ -101,11 +131,11 @@ const Navbar = ({ theme, toggleTheme }) => {
         }
 
         .theme-toggle {
-          background: var(--glass);
-          border: 1px solid var(--glass-border);
+          background: transparent;
+          border: none;
           color: var(--text);
-          width: 45px;
-          height: 45px;
+          width: 40px;
+          height: 40px;
           border-radius: 50%;
           display: flex;
           align-items: center;
@@ -129,15 +159,68 @@ const Navbar = ({ theme, toggleTheme }) => {
           box-shadow: 0 10px 20px var(--primary-glow);
         }
 
-        .btn-cta:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 15px 30px var(--primary-glow);
+        .mobile-menu-btn {
+          display: none;
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 10px;
+          z-index: 1001;
         }
 
-        @media (max-width: 768px) {
+        .hamburger span {
+          display: block;
+          width: 25px;
+          height: 2px;
+          background: var(--text);
+          margin: 6px 0;
+          transition: var(--transition);
+        }
+
+        .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        @media (max-width: 992px) {
+          .mobile-menu-btn { display: block; }
+          .desktop-only { display: none; }
+          .mobile-only { display: block; }
+          
+          .navbar-logo { height: 70px; }
+          .navbar.scrolled .navbar-logo { height: 60px; }
+
           .nav-links {
-            display: none;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100vh;
+            background: var(--bg);
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px;
+            transition: 0.5s;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+            z-index: 1000;
+            gap: 2.5rem;
           }
+
+          .nav-links.active { right: 0; }
+          
+          .btn-cta.mobile-only { 
+            width: 100%; 
+            text-align: center;
+            margin-top: 1rem;
+          }
+        }
+
+        @media (max-width: 480px) {
+           .theme-toggle {
+             width: 40px;
+             height: 40px;
+           }
+           .nav-actions { gap: 0.8rem; }
         }
       `}</style>
     </nav>

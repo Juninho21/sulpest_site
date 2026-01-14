@@ -302,8 +302,18 @@ section {
 }
 
 .value-item .icon {
-  font-size: 2rem;
-  margin-bottom: 15px;
+  width: 40px;
+  height: 40px;
+  color: var(--primary);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.value-item:hover .icon {
+  transform: scale(1.1);
+  color: var(--secondary);
+  transition: var(--transition);
 }
 
 .value-item h3 {
@@ -529,13 +539,40 @@ section {
 
   .contact-wrapper {
     padding: 30px;
+    gap: 40px;
+  }
+
+  .footer-content {
+    text-align: center;
+    gap: 40px;
+  }
+
+  .footer-brand p {
+    margin-left: 0;
+    margin: 20px auto 0;
+  }
+
+  .social-icons {
+    justify-content: center;
   }
 }
 
 @media (max-width: 768px) {
   .hero {
-    height: auto;
-    padding: 150px 0 100px;
+    min-height: 100vh;
+    padding: 120px 0 60px;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero h1 {
+    font-size: 2.8rem;
+    line-height: 1.1;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+    margin: 0 auto 2.5rem;
   }
 
   .hero-text {
@@ -544,10 +581,48 @@ section {
 
   .hero-btns {
     justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 15px;
   }
 
-  .values-grid {
+  .hero-btns .btn {
+    width: 100%;
+  }
+
+  .section-title h2 {
+    font-size: 2rem;
+  }
+
+  .services-grid {
     grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .service-card {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .about-img {
+    height: 300px;
+  }
+
+  .contact-info h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .badge {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.8rem;
   }
 }

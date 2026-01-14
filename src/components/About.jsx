@@ -18,17 +18,31 @@ const About = () => {
 
                         <div className="values-grid">
                             <div className="value-item">
-                                <div className="icon">🛡️</div>
+                                <div className="icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                    </svg>
+                                </div>
                                 <h3>Missão</h3>
                                 <p>Proteger ambientes com excelência e compromisso.</p>
                             </div>
                             <div className="value-item">
-                                <div className="icon">👁️</div>
+                                <div className="icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="3" />
+                                    </svg>
+                                </div>
                                 <h3>Visão</h3>
                                 <p>Ser referência em controle de pragas moderno.</p>
                             </div>
                             <div className="value-item">
-                                <div className="icon">🤝</div>
+                                <div className="icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M6 3h12l4 6-10 12L2 9z" />
+                                        <path d="M11 3 8 9l4 12 4-12-3-6" />
+                                        <path d="M2 9h20" />
+                                    </svg>
+                                </div>
                                 <h3>Valores</h3>
                                 <p>Ética, segurança e inovação constante.</p>
                             </div>
