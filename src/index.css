@@ -528,87 +528,122 @@ section {
   font-size: 0.85rem;
 }
 
-/* Responsive */
+/* Global Touch & Mobile Optimizations */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  touch-action: manipulation;
+}
+
+button,
+a,
+input,
+textarea {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Base Responsive */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 25px;
+}
+
 @media (max-width: 992px) {
 
   .about-grid,
   .contact-wrapper,
   .footer-content {
     grid-template-columns: 1fr;
+    gap: 50px;
   }
 
-  .contact-wrapper {
-    padding: 30px;
-    gap: 40px;
-  }
-
-  .footer-content {
-    text-align: center;
-    gap: 40px;
-  }
-
-  .footer-brand p {
-    margin-left: 0;
-    margin: 20px auto 0;
-  }
-
-  .social-icons {
-    justify-content: center;
+  .section-title h2 {
+    font-size: 2.2rem;
   }
 }
 
 @media (max-width: 768px) {
+  .section {
+    padding: 80px 0;
+  }
+
   .hero {
     min-height: 100vh;
     padding: 120px 0 60px;
     display: flex;
     align-items: center;
+    background-attachment: scroll;
+    /* Melhora performance scroll mobile */
   }
 
   .hero h1 {
-    font-size: 2.8rem;
-    line-height: 1.1;
+    font-size: 2.6rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
   }
 
   .hero p {
-    font-size: 1.1rem;
-    margin: 0 auto 2.5rem;
-  }
-
-  .hero-text {
-    text-align: center;
+    font-size: 1.15rem;
+    margin-bottom: 2.5rem;
   }
 
   .hero-btns {
-    justify-content: center;
+    width: 100%;
     flex-direction: column;
-    gap: 15px;
+    gap: 16px;
   }
 
   .hero-btns .btn {
     width: 100%;
-  }
-
-  .section-title h2 {
-    font-size: 2rem;
+    padding: 1.2rem;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .services-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 32px;
   }
 
   .service-card {
-    max-width: 400px;
-    margin: 0 auto;
+    max-width: 100%;
   }
 
-  .about-img {
-    height: 300px;
+  .service-content {
+    padding: 24px;
+  }
+
+  .contact-wrapper {
+    padding: 20px;
+    border-radius: 20px;
   }
 
   .contact-info h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+
+  .detail-item {
+    padding: 15px;
+    background: var(--glass);
+    border-radius: 12px;
+  }
+
+  .footer-brand p {
+    margin-left: 0;
+    margin-top: 15px;
+  }
+
+  /* Melhora inputs para evitar zoom no focus (iOS/Android) */
+  input,
+  textarea,
+  select {
+    font-size: 16px !important;
+    padding: 15px !important;
   }
 }
 
@@ -618,11 +653,29 @@ section {
   }
 
   .hero h1 {
-    font-size: 2.2rem;
+    font-size: 2.1rem;
+  }
+
+  .section-title h2 {
+    font-size: 1.8rem;
+  }
+
+  .about-img {
+    height: 250px;
   }
 
   .badge {
-    font-size: 0.7rem;
-    padding: 0.4rem 0.8rem;
+    padding: 6px 12px;
+    font-size: 0.75rem;
   }
+}
+
+/* Fix for touch devices active state */
+.btn:active {
+  transform: scale(0.96);
+  opacity: 0.9;
+}
+
+.service-card:active {
+  transform: translateY(-2px);
 }

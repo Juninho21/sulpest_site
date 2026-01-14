@@ -182,7 +182,11 @@ const Navbar = ({ theme, toggleTheme }) => {
         .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
         @media (max-width: 992px) {
-          .mobile-menu-btn { display: block; }
+          .mobile-menu-btn { 
+            display: block; 
+            padding: 12px;
+            margin-right: -10px;
+          }
           .desktop-only { display: none; }
           .mobile-only { display: block; }
           
@@ -193,36 +197,71 @@ const Navbar = ({ theme, toggleTheme }) => {
             position: fixed;
             top: 0;
             right: -100%;
-            width: 80%;
-            max-width: 300px;
-            height: 100vh;
+            width: 85%;
+            max-width: 320px;
+            height: 100dvh; /* Dynamic viewport height para mobile */
             background: var(--bg);
             flex-direction: column;
             justify-content: center;
-            padding: 40px;
-            transition: 0.5s;
+            padding: 60px 40px;
+            transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             box-shadow: -10px 0 30px rgba(0,0,0,0.5);
             z-index: 1000;
-            gap: 2.5rem;
+            gap: 1.5rem;
           }
 
           .nav-links.active { right: 0; }
           
+          .nav-links a {
+            width: 100%;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--glass-border);
+            font-size: 1.1rem;
+          }
+
+          .nav-links a:last-child {
+            border-bottom: none;
+          }
+
           .btn-cta.mobile-only { 
             width: 100%; 
             text-align: center;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
+            padding: 1.2rem;
+            font-size: 1.1rem;
+          }
+
+          /* Overlay para fechar o menu ao clicar fora */
+          .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.4s;
+            z-index: 999;
+          }
+
+          .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
           }
         }
 
         @media (max-width: 480px) {
            .theme-toggle {
-             width: 40px;
-             height: 40px;
+             width: 45px;
+             height: 45px;
            }
-           .nav-actions { gap: 0.8rem; }
+           .nav-actions { gap: 0.5rem; }
+           .nav-links { width: 90%; }
         }
       `}</style>
+      <div className={`menu-overlay ${isMenuOpen ? 'active' : ''}`} onClick={() => setIsMenuOpen(false)}></div>
     </nav>
   );
 };
