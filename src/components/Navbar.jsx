@@ -201,19 +201,19 @@ const Navbar = ({ theme, toggleTheme }) => {
             position: fixed;
             top: 0;
             right: 0;
-            width: 85%;
-            max-width: 320px;
-            height: 100dvh; /* Dynamic viewport height para mobile */
+            width: 80%;
+            max-width: 280px;
+            height: 100dvh;
             background: var(--bg);
             flex-direction: column;
             justify-content: center;
-            padding: 60px 40px;
+            padding: 40px 30px;
             transform: translateX(100%);
             visibility: hidden;
             transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             box-shadow: -10px 0 30px rgba(0,0,0,0.5);
             z-index: 1000;
-            gap: 1.5rem;
+            gap: 0.5rem;
           }
 
           .nav-links.active { 
@@ -223,9 +223,9 @@ const Navbar = ({ theme, toggleTheme }) => {
           
           .nav-links a {
             width: 100%;
-            padding: 15px 0;
+            padding: 12px 0;
             border-bottom: 1px solid var(--glass-border);
-            font-size: 1.1rem;
+            font-size: 0.95rem;
           }
 
           .nav-links a:last-child {
@@ -235,9 +235,9 @@ const Navbar = ({ theme, toggleTheme }) => {
           .btn-cta.mobile-only { 
             width: 100%; 
             text-align: center;
-            margin-top: 1.5rem;
-            padding: 1.2rem;
-            font-size: 1.1rem;
+            margin-top: 1rem;
+            padding: 1rem;
+            font-size: 1rem;
           }
 
           /* Overlay para fechar o menu ao clicar fora */
