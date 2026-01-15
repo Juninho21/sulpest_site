@@ -60,6 +60,7 @@ const Navbar = ({ theme, toggleTheme }) => {
           width: 100%;
           z-index: 1000;
           padding: 1.5rem 0;
+          padding-top: calc(1.5rem + env(safe-area-inset-top));
           transition: var(--transition);
         }
 
@@ -67,6 +68,7 @@ const Navbar = ({ theme, toggleTheme }) => {
           background: var(--card-bg);
           backdrop-filter: blur(20px);
           padding: 0.5rem 0;
+          padding-top: calc(0.5rem + env(safe-area-inset-top));
           border-bottom: 1px solid var(--glass-border);
         }
 
@@ -84,9 +86,11 @@ const Navbar = ({ theme, toggleTheme }) => {
 
         .navbar-logo {
           height: 100px;
+          max-width: 240px;
           width: auto;
           display: block;
           transition: var(--transition);
+          object-fit: contain;
         }
 
         [data-theme='light'] .navbar-logo {
@@ -196,7 +200,7 @@ const Navbar = ({ theme, toggleTheme }) => {
           .nav-links {
             position: fixed;
             top: 0;
-            right: -100%;
+            right: 0;
             width: 85%;
             max-width: 320px;
             height: 100dvh; /* Dynamic viewport height para mobile */
@@ -204,13 +208,18 @@ const Navbar = ({ theme, toggleTheme }) => {
             flex-direction: column;
             justify-content: center;
             padding: 60px 40px;
+            transform: translateX(100%);
+            visibility: hidden;
             transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             box-shadow: -10px 0 30px rgba(0,0,0,0.5);
             z-index: 1000;
             gap: 1.5rem;
           }
 
-          .nav-links.active { right: 0; }
+          .nav-links.active { 
+            transform: translateX(0);
+            visibility: visible;
+          }
           
           .nav-links a {
             width: 100%;
@@ -259,6 +268,10 @@ const Navbar = ({ theme, toggleTheme }) => {
            }
            .nav-actions { gap: 0.5rem; }
            .nav-links { width: 90%; }
+           .navbar-logo { 
+             height: 55px; 
+             max-width: 150px;
+           }
         }
       `}</style>
       <div className={`menu-overlay ${isMenuOpen ? 'active' : ''}`} onClick={() => setIsMenuOpen(false)}></div>
