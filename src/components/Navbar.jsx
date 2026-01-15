@@ -112,7 +112,10 @@ const Navbar = ({ theme, toggleTheme }) => {
         }
 
         [data-theme='light'] .navbar.scrolled .logo {
-          padding: 3px 12px;
+          background: transparent;
+          padding: 0;
+          box-shadow: none;
+          border: none;
         }
 
         .nav-links {
