@@ -102,11 +102,9 @@ const Navbar = ({ theme, toggleTheme }) => {
         }
 
         [data-theme='light'] .logo {
-          background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.7));
+          background: var(--card-bg);
           padding: 5px 15px;
-          border-radius: 15px;
-          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-          border: 1px solid rgba(255, 255, 255, 0.8);
+          border-radius: 12px;
           display: flex;
           align-items: center;
           justify-content: center;

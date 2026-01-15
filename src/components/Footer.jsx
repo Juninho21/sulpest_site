@@ -21,10 +21,9 @@ const Footer = () => {
                             transition: var(--transition);
                         }
                         [data-theme='light'] .footer-logo {
-                            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.7));
+                            background: var(--card-bg);
                             padding: 10px 20px;
-                            border-radius: 15px;
-                            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+                            border-radius: 12px;
                         }
                         @media (max-width: 480px) {
                             .footer-logo {
