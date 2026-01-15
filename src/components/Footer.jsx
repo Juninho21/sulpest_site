@@ -12,10 +12,17 @@ const Footer = () => {
 
                     <style jsx>{`
                         .footer-logo {
-                            height: 120px;
+                            height: 100px;
+                            max-width: 100%;
                             width: auto;
                             display: block;
                             margin-bottom: 20px;
+                            object-fit: contain;
+                        }
+                        @media (max-width: 480px) {
+                            .footer-logo {
+                                height: 80px;
+                            }
                         }
                     `}</style>
 
