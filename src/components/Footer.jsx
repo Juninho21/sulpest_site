@@ -21,14 +21,11 @@ const Footer = () => {
                             transition: var(--transition);
                         }
                         [data-theme='light'] .footer-logo {
-                            background: var(--card-bg);
-                            padding: 10px 20px;
-                            border-radius: 12px;
+                            filter: contrast(1.1) brightness(0.9);
                         }
                         @media (max-width: 480px) {
                             .footer-logo {
                                 height: 80px;
-                                padding: 8px 15px;
                             }
                         }
                     `}</style>
