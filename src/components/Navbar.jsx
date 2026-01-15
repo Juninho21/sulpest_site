@@ -85,8 +85,8 @@ const Navbar = ({ theme, toggleTheme }) => {
         }
 
         .navbar-logo {
-          height: 100px;
-          max-width: 240px;
+          height: 130px;
+          max-width: 280px;
           width: auto;
           display: block;
           transition: var(--transition);
@@ -98,7 +98,7 @@ const Navbar = ({ theme, toggleTheme }) => {
         }
 
         .navbar.scrolled .navbar-logo {
-          height: 70px;
+          height: 85px;
         }
 
         [data-theme='light'] .logo {
@@ -286,8 +286,8 @@ const Navbar = ({ theme, toggleTheme }) => {
            .nav-actions { gap: 0.5rem; }
            .nav-links { width: 90%; }
            .navbar-logo { 
-             height: 55px; 
-             max-width: 150px;
+             height: 65px; 
+             max-width: 180px;
            }
         }
       `}</style>
