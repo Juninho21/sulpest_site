@@ -18,10 +18,18 @@ const Footer = () => {
                             display: block;
                             margin-bottom: 20px;
                             object-fit: contain;
+                            transition: var(--transition);
+                        }
+                        [data-theme='light'] .footer-logo {
+                            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.7));
+                            padding: 10px 20px;
+                            border-radius: 15px;
+                            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
                         }
                         @media (max-width: 480px) {
                             .footer-logo {
                                 height: 80px;
+                                padding: 8px 15px;
                             }
                         }
                     `}</style>

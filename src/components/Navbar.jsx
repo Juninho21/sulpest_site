@@ -101,6 +101,22 @@ const Navbar = ({ theme, toggleTheme }) => {
           height: 70px;
         }
 
+        [data-theme='light'] .logo {
+          background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.7));
+          padding: 5px 15px;
+          border-radius: 15px;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.8);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: var(--transition);
+        }
+
+        [data-theme='light'] .navbar.scrolled .logo {
+          padding: 3px 12px;
+        }
+
         .nav-links {
           display: flex;
           gap: 2rem;
